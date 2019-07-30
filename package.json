@@ -1,0 +1,19 @@
+{
+  "name": "SR_Accessibility",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "pa11y --standard WCAG2AAA  --reporter html ./index.html  > output.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^15.1.1"
+  },
+  "devDependencies": {
+    "pa11y": "^5.2.0",
+    "pa11y-reporter-html": "^1.0.0"
+  }
+}
