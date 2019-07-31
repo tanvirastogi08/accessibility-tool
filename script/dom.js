@@ -27,11 +27,14 @@ request(
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
-    fs.writeFile(`${dir}/output`, data, err => {
+    fs.writeFile(`${dir}/output.html`, data, err => {
       if (err) console.log(err);
       console.log("Successfully Written to File.");
     });
 
     if (error) throw new Error("Something went wrong!");
+    else {
+      return 0;
+    }
   }
 );

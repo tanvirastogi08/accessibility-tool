@@ -1,12 +1,11 @@
 {
-  "name": "SR_Accessibility",
+  "name": "Accessibility Tool",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "func() {  npm run build $1 && npm run test; }; func()",
-    "test": "pa11y --standard WCAG2AAA  --reporter html ./index.html  > accessibility-report.html",
-    "build": "node script/dom.js"
+    "build": "node script/dom.js",
+    "postbuild": "pa11y --standard WCAG2AAA  --reporter html ./output/output.html  > accessibility-report.html"
   },
   "keywords": [],
   "author": "",
