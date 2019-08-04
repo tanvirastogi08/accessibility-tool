@@ -1,17 +1,20 @@
 {
-  "name": "Accessibility Tool",
+  "name": "accessibilitychecker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "node script/dom.js",
-    "postbuild": "pa11y --standard WCAG2AAA  --reporter html ./output/output.html  > accessibility-report.html"
+    "postbuild": "pa11y --standard WCAG2AAA  --reporter html ./temp/output.html  > accessibility-report.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "ejs": "^2.3.4",
+    "body-parser": "^1.14.0",
     "jsdom": "^15.1.1",
     "remove-blank-lines": "^1.1.1"
   },

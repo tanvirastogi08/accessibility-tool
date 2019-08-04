@@ -2,7 +2,7 @@ var request = require("request");
 var jsdom = require("jsdom");
 var fs = require("fs");
 var rbl = require("remove-blank-lines");
-var dir = "./output";
+var dir = "./temp";
 
 const { JSDOM } = jsdom;
 

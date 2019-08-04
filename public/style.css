@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+}
+
+.container {
+  margin: 100px;
+  padding: 20px;
+  border: 2px solid green;
+}
+
+.container form input {
+  margin: 10px;
+  padding: 5px;
+  width: 25%;
+  border-radius: 25px;
+}
+
+.container form button {
+  margin-top: 10px;
+  border-radius: 25px;
+}
