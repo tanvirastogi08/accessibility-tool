@@ -4,18 +4,24 @@ body {
 
 .container {
   margin: 100px;
-  padding: 20px;
+}
+
+.container form {
   border: 2px solid green;
+  margin: 50px;
+  padding: 25px;
 }
 
 .container form input {
   margin: 10px;
   padding: 5px;
-  width: 25%;
-  border-radius: 25px;
+  width: 30%;
+  border-radius: 1px;
 }
 
 .container form button {
   margin-top: 10px;
-  border-radius: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  color: green;
 }

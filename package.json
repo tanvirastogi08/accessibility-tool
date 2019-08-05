@@ -4,18 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node script/dom.js",
-    "postbuild": "pa11y --standard WCAG2AAA  --reporter html ./temp/output.html  > accessibility-report.html"
+    "build": "node app.js",
+    "postbuild": "pa11y --standard WCAG2AAA  --reporter html ./temp/output.html  > accessibility-report.html && npm run exit",
+    "exit": "start cmd.exe @cmd /k \"echo \"goodbye\" && exit 1\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.14.0",
+    "ejs": "^2.3.4",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "ejs": "^2.3.4",
-    "body-parser": "^1.14.0",
     "jsdom": "^15.1.1",
+    "npm": "^6.10.2",
     "remove-blank-lines": "^1.1.1"
   },
   "devDependencies": {
