@@ -7,6 +7,7 @@ const fs = require("fs");
 const rbl = require("remove-blank-lines");
 const open = require("open");
 const pa11y = require('pa11y');
+const puppeteer = require('puppeteer');
 
 const port = process.env.PORT || 3000;
 
@@ -52,10 +53,7 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 				npm.load({}, function (er) {
 					if (er) { return; }
 					// npm.commands.run(['postbuild']);
-					pa11y('./temp/output.html').then((result) => {
-						// Do something with the results
-						console.log('result:', result);
-					});
+					runExample();
 				});
 				console.log("Successfully Written to File.");
 			});
@@ -70,3 +68,51 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 
 app.listen(port);
 open('http://localhost:' + port);
+
+// Async function required for us to use await
+async function runExample() {
+	let browser;
+	let pages;
+	try {
+
+		// Launch our own browser
+		browser = await puppeteer.launch();
+
+		// Create a page for the test runs
+		// (Pages cannot be used in multiple runs)
+		pages = [
+			await browser.newPage(),
+		];
+
+		// Test http://example.com/ with our shared browser
+		const result1 = await pa11y('./temp/output', {
+			browser: browser,
+			page: pages[0]
+		});
+
+		// Output the raw result objects
+		console.log('result1', result1);
+
+		// Close the browser instance and pages now we're done with it
+		for (const page of pages) {
+			await page.close();
+		}
+		await browser.close();
+
+	} catch (error) {
+
+		// Output an error if it occurred
+		console.error(error.message);
+
+		// Close the browser instance and pages if theys exist
+		if (pages) {
+			for (const page of pages) {
+				await page.close();
+			}
+		}
+		if (browser) {
+			await browser.close();
+		}
+
+	}
+}
