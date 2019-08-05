@@ -5,6 +5,8 @@ const request = require("request");
 const jsdom = require("jsdom");
 const fs = require("fs");
 const rbl = require("remove-blank-lines");
+const open = require("open");
+const pa11y = require('pa11y');
 
 const port = process.env.PORT || 3000;
 
@@ -49,7 +51,11 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 				if (err) console.log(err);
 				npm.load({}, function (er) {
 					if (er) { return; }
-					npm.commands.run(['postbuild']);
+					// npm.commands.run(['postbuild']);
+					pa11y('./temp/output.html').then((result) => {
+						// Do something with the results
+						console.log('result:', result);
+					});
 				});
 				console.log("Successfully Written to File.");
 			});
@@ -63,3 +69,4 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 });
 
 app.listen(port);
+open('http://localhost:' + port);

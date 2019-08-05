@@ -18,6 +18,7 @@
     "fs": "0.0.1-security",
     "jsdom": "^15.1.1",
     "npm": "^6.10.2",
+    "open": "^6.4.0",
     "remove-blank-lines": "^1.1.1"
   },
   "devDependencies": {
