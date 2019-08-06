@@ -6,8 +6,10 @@
 	<body>
 		<div class="container">
 			<h1>Accessibility Checker</h1>
-			<form method="POST" action="/thankyou">
-				<input type="text" id="url" name="url" placeholder="Enter the url" required/><br />
+			<form class="form-wrapper" method="POST" action="/thankyou">
+				<input type="text" id="path" name="path" placeholder="Enter the path (starting from /content)" required/><br />
+				<input type="text" id="port" name="port" placeholder="Enter a valid port number ex:4502" value="4502" required/><br />
+				<input type="text" id="hostname" name="hostname" placeholder="Enter the hostname ex:localhost" value="localhost" required/><br />
 				<input type="text" id="username" name="username" placeholder="Enter the username" required/><br />
 				<input type="password" id="password" name="password" placeholder="Enter the password" required/><br />
 				<button type="submit">Submit</button>

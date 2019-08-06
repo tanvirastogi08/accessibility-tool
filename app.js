@@ -35,18 +35,16 @@ app.get('/', function (req, res) {
 
 app.post('/thankyou', urlencodedParser, function (req, res) {
 	res.render('thankyou');
-	let uri = req.body.url.split("//")[1].split("4502");
-	uri = "http://" + req.body.username + ":" + req.body.password + "@localhost:4502" + uri[1];
+	const bodyRequest = req.body;
+	const uri = 'http://' + bodyRequest.username + ":" + bodyRequest.password + `@${bodyRequest.hostname}:${bodyRequest.port}` + bodyRequest.path;
 	console.log('URI: ', uri);
-	// TODO: change the way we write this request
-	request(
-		{
-			uri
-		},
+
+	request({ uri },
 		async function (error, response, body) {
 			try {
 				if (error) throw new Error("Something went wrong!");
 				if (response.statusCode !== 200) throw new Error(response.statusMessage);
+
 				const dom = new JSDOM(body);
 				const htmlOutput = rbl(dom.window.document.body.innerHTML);
 				data = data.replace("{%Replace%}", htmlOutput);
@@ -60,6 +58,7 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 				// Returns a string with the results formatted as HTML
 				const htmlResults = await html.results(result);
 				fs.writeFileSync('accessibility-report.html', htmlResults);
+				open(`http://localhost:${port}/accessibility-report`);
 				console.log("Successfully Written to File.");
 			}
 			catch (e) {
@@ -67,6 +66,10 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 			}
 		}
 	);
+});
+
+app.get('/accessibility-report', function (req, res) {
+	res.sendFile('./accessibility-report.html');
 });
 
 app.listen(port);
