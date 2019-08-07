@@ -69,7 +69,7 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 });
 
 app.get('/accessibility-report', function (req, res) {
-	res.sendFile('./accessibility-report.html');
+	res.sendfile('./accessibility-report.html');
 });
 
 app.listen(port);
