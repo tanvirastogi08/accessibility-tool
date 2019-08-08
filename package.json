@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node app.js && exit 1",
+    "build": "node app.js",
     "postbuild": "pa11y --standard WCAG2AAA  --reporter html ./temp/output.html  > accessibility-report.html && npm run exit"
   },
   "keywords": [],
