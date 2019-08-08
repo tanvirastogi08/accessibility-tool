@@ -55,7 +55,13 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 				const filePath = `${dir}/output.html`;
 				fs.writeFileSync(filePath, data);
 				const result = await pa11y(filePath, {
-					rules: ['Principle1.Guideline1_3.1_3_1_AAA']
+					rules: ['Principle1.Guideline1_3.1_3_1_AAA'],
+					standard: 'WCAG2AA',
+					log: {
+						debug: console.log,
+						error: console.error,
+						info: console.log
+					}
 				});
 				// Returns a string with the results formatted as HTML
 				const htmlResults = await html.results(result);
@@ -71,7 +77,7 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 });
 
 app.get('/accessibility-report', function (req, res) {
-	res.sendfile('./accessibility-report.html');
+	res.sendFile(`${__dirname}/accessibility-report.html`);
 });
 
 app.listen(port);
