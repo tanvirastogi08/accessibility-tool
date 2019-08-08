@@ -54,7 +54,9 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 				if (!data) throw new Error('Data is undefined!');
 				const filePath = `${dir}/output.html`;
 				fs.writeFileSync(filePath, data);
-				const result = await pa11y(filePath);
+				const result = await pa11y(filePath, {
+					rules: ['Principle1.Guideline1_3.1_3_1_AAA']
+				});
 				// Returns a string with the results formatted as HTML
 				const htmlResults = await html.results(result);
 				fs.writeFileSync('accessibility-report.html', htmlResults);
