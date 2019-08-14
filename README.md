@@ -10,7 +10,7 @@ Run `npm install` at the root path of the project to install the dependencies.
 
 Run `npm run build` to run the server.
 
-1. Fill all the required details.
+1. Fill the Path starting from '/content/...'.
 
 2. Change the HostName to one of localhost or 10.122.16.147
 
