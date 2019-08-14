@@ -9,7 +9,7 @@ const pa11y = require('pa11y');
 const html = require('pa11y-reporter-html');
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const app = express();
 
@@ -47,13 +47,13 @@ app.post('/thankyou', urlencodedParser, function (req, res) {
 
 				const dom = new JSDOM(body);
 				const htmlOutput = rbl(dom.window.document.body.innerHTML);
-				data = data.replace("{%Replace%}", htmlOutput);
+				const newData = data.replace("{%Replace%}", htmlOutput);
 				if (!fs.existsSync(dir)) {
 					fs.mkdirSync(dir);
 				}
-				if (!data) throw new Error('Data is undefined!');
+				if (!newData) throw new Error('Data is undefined!');
 				const filePath = `${dir}/output.html`;
-				fs.writeFileSync(filePath, data);
+				fs.writeFileSync(filePath, newData);
 				const result = await pa11y(filePath, {
 					rules: ['Principle1.Guideline1_3.1_3_1_AAA'],
 					standard: 'WCAG2AA',
