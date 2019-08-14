@@ -16,8 +16,8 @@ Run `npm run build` to run the server.
 
 3. Default Port is 4502, update if needed.
 
-4. After entering all the required details submit the form.
+4. Hit enter after filling all the details.
 
-4. When the accessibility report is generated for the current path it will be visible in your browser
+5. After few moments, the accessibility report is generated for the current path and it will be visible in your browser.
 
-5. To validate the next component path you can simply go back to the home page -> enter new Path -> hit submit button. It will generate the report of your new component path.
+6. To validate the next component path you can simply go back from thankyou page -> home page -> enter new Path -> hit submit button. It will generate the report of your new component path OR run the command `npm run build` again to validate next component.
