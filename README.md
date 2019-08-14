@@ -18,4 +18,6 @@ Run `npm run build` to run the server.
 
 4. After entering all the required details submit the form.
 
-4. When the accessibility report is generated for the current path it will be visible to your browser, you can simply go back to the home page -> enter new Path -> hit submit button to generate the report of new page.
+4. When the accessibility report is generated for the current path it will be visible in your browser
+
+5. To validate the next component path you can simply go back to the home page -> enter new Path -> hit submit button. It will generate the report of your new component path.
