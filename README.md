@@ -1,6 +1,7 @@
 # Accessibility-Tool
 
 A tool which will check the accessibility of your independent component.
+`NOTE: ` For now this tool will work at individual component level only and not for complete page.
 
 ## Installation
 
