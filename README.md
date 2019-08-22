@@ -4,7 +4,7 @@ A tool which will check the accessibility of your independent component.
 `NOTE: ` For now this tool will work at individual component level only and not for complete page.
 
 ## Prerequisite
--- NodeJs installed on your machine. You can download NodeJS from [here](https://nodejs.org/en/download/ "NODEJS")
+-- NodeJs installed on your machine. You can download NodeJS from [here](https://nodejs.org/en/download/ "NODEJS").
 
 ## Installation
 
